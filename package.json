@@ -10,7 +10,7 @@
   "scripts": {
     "prepare": "node scripts/prepare.mjs",
     "preinstall": "node scripts/block-npm-install.js",
-    "build": "echo 'No build step needed for n8n'",
+    "build": "pnpm run build:backend",
     "build:backend": "turbo run build:backend",
     "build:frontend": "turbo run build:frontend",
     "build:nodes": "turbo run build:nodes",
