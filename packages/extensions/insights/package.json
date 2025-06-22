@@ -29,11 +29,13 @@
   },
   "scripts": {
     "cleanup": "rimraf dist",
+    "build:declarations": "tsc --build tsconfig.backend.json",
+    "build:js": "tsup",
+    "build:backend": "pnpm cleanup && pnpm build:declarations && pnpm build:js",
+    "build:frontend": "vite build",
+    "build": "pnpm run build:backend && pnpm run build:frontend",
     "dev": "vite",
     "typecheck": "vue-tsc --noEmit",
-    "build:backend": "tsup",
-    "build:frontend": "vite build",
-    "build": "pnpm cleanup && pnpm run \"/^build:.*/\"",
     "preview": "vite preview"
   },
   "peerDependencies": {

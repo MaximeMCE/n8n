@@ -1,6 +1,7 @@
-import { defineConfig } from 'tsup';
-
-export default defineConfig([
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tsup_1 = require('tsup');
+exports.default = (0, tsup_1.defineConfig)([
 	{
 		clean: false,
 		entry: ['src/*.ts', '!src/*.test.ts', '!src/*.d.ts', '!src/__tests__/**/*'],

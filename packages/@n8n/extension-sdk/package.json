@@ -31,11 +31,13 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "dev": "tsup --watch",
-    "typecheck:frontend": "vue-tsc --noEmit --project tsconfig.frontend.json",
-    "typecheck:backend": "tsc --noEmit --project tsconfig.backend.json",
-    "build": "pnpm \"/^typecheck:.+/\" && pnpm clean && tsup && pnpm create-json-schema",
+    "build:declarations": "tsc --build tsconfig.common.json tsconfig.backend.json tsconfig.frontend.json",
+    "build:js": "tsup",
+    "build": "pnpm clean && pnpm build:declarations && pnpm build:js && pnpm create-json-schema",
     "create-json-schema": "tsx scripts/create-json-schema.ts",
+    "dev": "tsup --watch",
+    "typecheck:backend": "tsc --noEmit --project tsconfig.backend.json",
+    "typecheck:frontend": "vue-tsc --noEmit --project tsconfig.frontend.json",
     "preview": "vite preview"
   },
   "peerDependencies": {
@@ -47,15 +49,15 @@
     "@vitejs/plugin-vue": "catalog:frontend",
     "@vue/tsconfig": "catalog:frontend",
     "rimraf": "catalog:",
+    "tsx": "catalog:",
     "vite": "catalog:frontend",
     "vue": "catalog:frontend",
     "vue-router": "catalog:frontend",
     "vue-tsc": "catalog:frontend",
-    "zod-to-json-schema": "catalog:",
-    "tsx": "catalog:"
+    "zod-to-json-schema": "catalog:"
   },
-  "license": "https://docs.n8n.io/sustainable-use-license/",
   "dependencies": {
     "zod": "catalog:"
-  }
+  },
+  "license": "https://docs.n8n.io/sustainable-use-license/"
 }

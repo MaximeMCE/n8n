@@ -90,11 +90,15 @@ export class Server extends AbstractServer {
 		}
 
 		this.presetCredentialsLoaded = false;
-
 		this.endpointPresetCredentials = this.globalConfig.credentials.overwrite.endpoint;
 
 		await super.start();
 		this.logger.debug(`Server ID: ${this.instanceSettings.hostId}`);
+
+		const customExtensionsPath = process.env.N8N_CUSTOM_EXTENSIONS;
+		if (customExtensionsPath) {
+			console.log(`🔍 Loading custom extensions from ${customExtensionsPath}`);
+		}
 
 		if (inDevelopment && process.env.N8N_DEV_RELOAD === 'true') {
 			void this.loadNodesAndCredentials.setupHotReload();
@@ -102,7 +106,6 @@ export class Server extends AbstractServer {
 
 		this.eventService.emit('server-started');
 	}
-
 	private async registerAdditionalControllers() {
 		if (!inProduction && this.instanceSettings.isMultiMain) {
 			await import('@/controllers/debug.controller');

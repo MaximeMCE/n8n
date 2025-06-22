@@ -1,15 +1,9 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-	entry: [
-		'src/backend/**/*.ts',
-		'!src/backend/**/*.test.ts',
-		'!src/backend/**/*.d.ts',
-		'!src/backend/__tests__**/*',
-	],
+	entry: ['src/backend/index.ts'],
 	outDir: 'dist/backend',
 	format: ['cjs', 'esm'],
-	dts: true,
 	sourcemap: true,
-	tsconfig: 'tsconfig.backend.json',
+	dts: false,
 });

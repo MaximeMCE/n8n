@@ -1,13 +1,11 @@
 {
+	"files": [],
+	"compilerOptions": {
+		"composite": true
+	},
 	"references": [
-		{
-			"path": "./tsconfig.common.json"
-		},
-		{
-			"path": "./tsconfig.backend.json"
-		},
-		{
-			"path": "./tsconfig.frontend.json"
-		}
+		{ "path": "./tsconfig.common.json" },
+		{ "path": "./tsconfig.backend.json" },
+		{ "path": "./tsconfig.frontend.json" }
 	]
 }

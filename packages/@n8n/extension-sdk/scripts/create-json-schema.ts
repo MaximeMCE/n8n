@@ -14,7 +14,7 @@ const jsonSchema = zodToJsonSchema(extensionManifestSchema, {
 });
 
 (async () => {
-	const filepath = 'schema.json';
+	const filepath = 'dist/schema.json';
 	const schema = JSON.stringify(jsonSchema);
 	const config = await resolveConfig(filepath);
 	const formattedSchema = await format(schema, { ...config, filepath });
