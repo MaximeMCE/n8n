@@ -3,7 +3,9 @@
   "compilerOptions": {
     "skipLibCheck": true,
     "noEmitOnError": false,
-    "moduleResolution": "node16"
+    "moduleResolution": "node16",
+    "strict": false,
+    "noImplicitAny": false
   },
   "exclude": [
     "**/dist/**/*",
